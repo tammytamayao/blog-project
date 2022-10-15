@@ -1,19 +1,26 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
   # Controller action variables can be used as reference in the view files (.erb)
+
+  #to implement set_article to the following actions only
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  #fetch all records of Article
   def index
-    @articles = Article.all #fetch all records of Article
+    @articles = Article.all
   end
 
+  #show records of an article with a specific ID
   def show
-     #show records of an article with a specific ID
+  
   end
 
+  #post newly created article
   def new
     @article = Article.new 
   end
   
+  #create new article through a form and saves the article in the database
   def create
     @article = Article.new(article_params)
 
@@ -24,9 +31,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  #edit existing article through a form
   def edit
   end
 
+  #saves the edited article in the database
   def update
 
     if @article.update(article_params)
@@ -37,6 +46,7 @@ class ArticlesController < ApplicationController
 
   end
 
+  #deletes the article
   def destroy
     @article.destroy
     redirect_to root_path
@@ -44,12 +54,14 @@ class ArticlesController < ApplicationController
 
   private
 
+  #extracted this line of code to implement DRY
   def set_article
     @article = Article.find(params[:id])
   end
 
+  #filters parameter to be accepted for security purposes
   def article_params
-    params.require(:article).permit(:title,:description,:body,)
+    params.require(:article).permit(:title,:description,:body)
   end
 
 end
