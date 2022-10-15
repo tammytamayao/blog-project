@@ -1,0 +1,10 @@
+
+
+<%= render "header" %>
+
+    <% @articles.each do |article| %>
+        <h2><%= article.title %></h2>
+        <p><%= article.description%></p>
+        <small><%= link_to "show more details", article %></small>
+        <hr></hr>
+    <% end %>

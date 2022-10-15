@@ -1,0 +1,17 @@
+
+<h2><%= @article.title %></h2>
+<h3><%= @article.description %></h3>
+<p>
+Date Posted: <%= @article.created_at %> </br>
+Last Updated: <%= @article.updated_at %>
+</p>
+<hr></hr>
+<p class="review-content"><%= @article.body %></p>
+
+<p>
+<small><%= link_to "Edit", edit_article_path(@article) %> |
+<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %> |
+<%= link_to "Back to Main", root_path %></small>
+</p>
+
+<%= render "flash" %>

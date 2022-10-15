@@ -1,0 +1,84 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+//Forms for NEW and EDIT
+.new-food-form-container-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-right: 10px;
+  }
+
+.new-food-form {
+    text-align: left;
+    margin-top: 20px;
+    padding: 20px 20px;
+    height: 86%;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 700px;
+    
+  }
+
+  textarea {
+    width:98%;
+    font-size: 12pt;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  input {
+    width: 60%;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .submit-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  // Header Styling
+ .header-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .header-list-container  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .header-container-container {
+    padding: 5px 5px;
+  }
+
+  .header-list, .header-title{
+    list-style: none;
+    color: black;
+    font-size: 20pt;
+    padding: 6px;
+  }
+
+  .header-comp-link{
+    text-decoration: none;
+    color: black;
+  }
+
+  //Show
+
+  .review-content {
+    text-align: justify;
+  }

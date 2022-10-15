@@ -1,0 +1,28 @@
+<%= form_with model: article do |form| %>
+
+    <div>
+    <%= form.label "Title: " %><br/>
+    <%= form.text_area :title, :rows=>1 %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+        <span><%= message %></span>
+    </div>
+
+    <% end %>
+
+    <div>
+    <%= form.label "Description: " %></br>
+    <%= form.text_area :description, :rows=>2 %>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+        <span><%= message %><span>
+    <% end %>
+    </div>
+
+    <div>
+    <%= form.label "Content: " %><br/>
+    <%= form.text_area :body, :rows=>6%>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+        <span><%= message %><span>
+    <% end %>
+    <p class="submit-button"><%= form.submit "Submit" %></p>  
+    </div>
+<% end %>
