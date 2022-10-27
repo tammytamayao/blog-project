@@ -1,17 +1,25 @@
+<%= render "header" %>
 
-<h2><%= @article.title %></h2>
-<h3><%= @article.description %></h3>
-<p>
-Date Posted: <%= @article.created_at %> </br>
-Last Updated: <%= @article.updated_at %>
-</p>
-<hr></hr>
-<p class="review-content"><%= @article.body %></p>
+<div class="category-title-container">
+    <span class="category-title"><%= @article.title.upcase %></span>
+</div>
 
-<p>
-<small><%= link_to "Edit", edit_article_path(@article) %> |
-<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %> |
-<%= link_to "Back to Main", root_path %></small>
-</p>
+<div class="article-body-container-container">
+<div class="article-body-list-container">
 
-<%= render "flash" %>
+<div class="article-body-header-container">
+    <span class="article-body-header">Date Posted: <%= @article.created_at %></span>
+    <span class="article-body-header" >Last Updated: <%= @article.updated_at %></span>
+</div>
+
+<div class="article-body-container"><span class="article-body"><strong><%= @article.body %></strong></span></div>
+
+</div>
+</div>
+
+<div class="article-subtitle-container-container">
+<span class="article-subtitle-container">
+    <span><%= link_to "Edit", edit_article_path(@article), class: "article-subtitle"  %></span>
+    <span><%= link_to "Back to Main", root_path, class: "article-subtitle"  %></span>
+</span>
+</div>

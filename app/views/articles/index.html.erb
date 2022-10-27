@@ -1,10 +1,15 @@
-
-
 <%= render "header" %>
+<%= render "flash" %>
+
+<div class="category-title-container"><span class="category-title">MY JOURNAL LIST</span></div>
+<div class="category-list-container">
 
     <% @articles.each do |article| %>
-        <h2><%= article.title %></h2>
-        <p><%= article.description%></p>
-        <small><%= link_to "show more details", article %></small>
-        <hr></hr>
+    <ul class="category-ul">
+        <li class="category-li">
+            <span><strong><%= link_to article.title, article, class: "category-link"  %></strong></span>
+            <span><span class="category-delete-btn"><%= link_to "X", article, method: :delete, data: {confirm: "Are you sure?"}, class: "delete-btn" %></span></span>
+        </li>
+    </ul>
     <% end %>
+</div>

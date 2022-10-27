@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   # Controller action variables can be used as reference in the view files (.erb)
 
-  #to implement set_article to the following actions only
+  #to implement set_article to the following actions only if the answer is truthy
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   #fetch all records of Article
@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-        redirect_to @article, notice: "Restaurant successfully added"
+        redirect_to @article, notice: "Entry successfully added"
     else
         render :new
     end
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
   def update
 
     if @article.update(article_params)
-      redirect_to @article, notice: "Restaurant successfully updated"
+      redirect_to root_path, notice: "Entry successfully updated"
     else
       render :edit
     end
@@ -49,19 +49,19 @@ class ArticlesController < ApplicationController
   #deletes the article
   def destroy
     @article.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "Entry successfully deleted"
   end
 
   private
 
-  #extracted this line of code to implement DRY
+  #Check if a blog with a specific id exists in the database. If not, it returns nil (falsy)
   def set_article
     @article = Article.find(params[:id])
   end
 
   #filters parameter to be accepted for security purposes
   def article_params
-    params.require(:article).permit(:title,:description,:body)
+    params.require(:article).permit(:title, :body)
   end
 
 end
