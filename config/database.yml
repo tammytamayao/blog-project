@@ -16,14 +16,20 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  # encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: containers-us-west-17.railway.app
+  username: postgres
+  password: Hc7l3wwaAhW7i5eLx56R
+  port: 6728
+
+
 
 development:
   <<: *default
-  database: blog_project_development
+  database: railway
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,7 +87,5 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['"DATABASE_URL"] %>
-  database: railwayapp_production
-  username: railwayapp
-  password: <%= ENV['RAILWAYAPP_DATABASE_PASSWORD'] %>
+  database: railway
+
